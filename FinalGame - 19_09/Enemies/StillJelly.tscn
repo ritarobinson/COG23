@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Hitbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Textures/Jelly1-still.png" type="Texture" id=2]
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 2, 0, 12, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 18, 0, 12, 16 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "jelly",
+"speed": 2.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4, 6.5 )
+
+[node name="RegJelly" type="Node2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -9 )
+frames = SubResource( 3 )
+animation = "jelly"
+frame = 1
+playing = true
+
+[node name="Regbox" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Regbox"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

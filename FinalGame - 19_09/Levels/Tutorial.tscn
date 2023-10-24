@@ -1,0 +1,147 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Textures/FFFFORWA.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Levels/Tutorial.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Textures/FFFFORWA.TTF"
+
+[sub_resource type="DynamicFont" id=6]
+size = 8
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Textures/FFFFORWA.TTF"
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+outline_color = Color( 1, 1, 1, 0 )
+extra_spacing_top = 4
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.00392157, 0.0627451, 0.105882, 0.588235 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0.00392157, 0.0627451, 0.105882, 0.784314 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.00392157, 0.0627451, 0.105882, 0.490196 )
+
+[node name="Tutorial" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.00392157, 0.0627451, 0.105882, 0.490196 )
+
+[node name="Square" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 58.0
+margin_right = 159.0
+margin_bottom = 171.0
+rect_min_size = Vector2( 50, 50 )
+color = Color( 0.00392157, 0.0627451, 0.105882, 0.490196 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 320.0
+margin_bottom = 170.0
+
+[node name="Aim" type="Label" parent="."]
+margin_left = 134.0
+margin_top = 17.0
+margin_right = 314.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 6 )
+text = "  AIM: collect a specified amount 
+      of jellyfish without dying.
+------------------------------"
+
+[node name="Levels" type="Label" parent="."]
+margin_left = 174.0
+margin_top = 62.0
+margin_right = 270.0
+margin_bottom = 76.0
+custom_colors/font_color = Color( 1, 1, 1, 0.627451 )
+custom_fonts/font = SubResource( 7 )
+text = "Levels: Easy  |  Hard"
+
+[node name="Movement" type="Label" parent="."]
+margin_left = 14.0
+margin_top = 72.0
+margin_right = 109.0
+margin_bottom = 111.0
+custom_fonts/font = SubResource( 2 )
+text = "This game uses 
+
+				             movement."
+
+[node name="WASD" type="Label" parent="."]
+margin_left = 19.0
+margin_top = 89.0
+margin_right = 50.0
+margin_bottom = 118.0
+custom_colors/font_color = Color( 0.589844, 0.589844, 0.589844, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "   W
+A S D"
+
+[node name="Enter" type="Label" parent="."]
+margin_left = 14.0
+margin_top = 132.0
+margin_right = 154.0
+margin_bottom = 157.0
+custom_fonts/font = SubResource( 4 )
+text = "To collect jellyfish, collide 
+while pressing < ENTER >"
+
+[node name="WinLose" type="Label" parent="."]
+margin_left = 166.0
+margin_top = 94.0
+margin_right = 313.0
+margin_bottom = 133.0
+custom_colors/font_color = Color( 0.729412, 0.0941176, 0.0941176, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "To win: Collect all jellyfish!
+
+Game Over: Health reached 0"
+
+[node name="Button" type="Node2D" parent="."]
+
+[node name="GoBtn" type="Button" parent="Button"]
+margin_left = 199.0
+margin_top = 141.0
+margin_right = 309.0
+margin_bottom = 171.0
+rect_min_size = Vector2( 65, 30 )
+focus_mode = 0
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
+text = "Got it!  >"
+icon_align = 1
+
+[connection signal="button_up" from="Button/GoBtn" to="." method="_on_GoBtn_button_up"]

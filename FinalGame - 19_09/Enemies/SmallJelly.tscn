@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Textures/JellySmll.png" type="Texture" id=1]
+[ext_resource path="res://Enemies/SmallJelly.gd" type="Script" id=2]
+[ext_resource path="res://Hitbox.tscn" type="PackedScene" id=3]
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 19, 2, 11, 13 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 2, 2, 11, 13 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "walking",
+"speed": 2.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 4.75, 5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 5, 4 )
+
+[node name="SmallJelly" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -8 )
+rotation = -1.58173
+frames = SubResource( 3 )
+animation = "walking"
+playing = true
+flip_h = true
+
+[node name="CollisionJelly" type="CollisionShape2D" parent="."]
+position = Vector2( -0.75, -7 )
+shape = SubResource( 9 )
+
+[node name="EdgeCheckLeft" type="RayCast2D" parent="."]
+position = Vector2( -6, -3 )
+enabled = true
+cast_to = Vector2( 0, 4 )
+
+[node name="EdgeCheckRight" type="RayCast2D" parent="."]
+position = Vector2( 3, -3 )
+enabled = true
+cast_to = Vector2( 0, 4 )
+
+[node name="Smlbox" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -2 )
+
+[node name="CollisionHit" type="CollisionShape2D" parent="Smlbox"]
+position = Vector2( -1, -5 )
+shape = SubResource( 6 )

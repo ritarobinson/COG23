@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Hitbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Textures/Jelly1-hit.png" type="Texture" id=2]
+[ext_resource path="res://Enemies/Jelly.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 2, 0, 12, 16 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "jelly",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4, 6.5 )
+
+[node name="Jelly" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -9 )
+frames = SubResource( 3 )
+animation = "jelly"
+
+[node name="Hitbox" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 4 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 0, -6 )
+enabled = true
+cast_to = Vector2( 0, 10 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

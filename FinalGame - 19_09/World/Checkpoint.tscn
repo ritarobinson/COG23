@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://World/Checkpoint.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 9, 22.5 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Textures/FFFFORWA.TTF"
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+font_data = SubResource( 1 )
+
+[node name="Checkpoint" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -13.5 )
+shape = SubResource( 4 )
+
+[node name="CheckpointReach" type="Label" parent="."]
+visible = false
+margin_left = -56.0
+margin_top = -70.0
+margin_right = 50.0
+margin_bottom = -56.0
+custom_colors/font_color = Color( 1, 1, 1, 0.498039 )
+custom_fonts/font = SubResource( 5 )
+text = "Checkpoint Reached!"
+
+[connection signal="body_entered" from="." to="." method="_on_Checkpoint_body_entered"]

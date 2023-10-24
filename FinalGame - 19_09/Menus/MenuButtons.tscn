@@ -1,0 +1,225 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Textures/FFFFORWA.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Textures/Jelly1BLANK.png" type="Texture" id=2]
+[ext_resource path="res://Textures/JellySmllBLANK.png" type="Texture" id=3]
+[ext_resource path="res://Textures/Jelly2BLANK.png" type="Texture" id=4]
+[ext_resource path="res://Textures/JellySmllCOLLECT-export.png" type="Texture" id=5]
+[ext_resource path="res://Textures/Jelly2COLLECT-export.png" type="Texture" id=6]
+[ext_resource path="res://Textures/Jelly1-COLLECTED.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=2]
+font_path = "res://Textures/FFFFORWA.TTF"
+
+[sub_resource type="DynamicFont" id=6]
+size = 8
+font_data = SubResource( 2 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Textures/FFFFORWA.TTF"
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+font_data = SubResource( 4 )
+
+[node name="GUI" type="CanvasLayer"]
+layer = 2
+
+[node name="Esc" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 9.0
+margin_right = 86.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 1 )
+text = "[ ESC ] to pause"
+
+[node name="Health" type="Label" parent="."]
+margin_left = 267.0
+margin_top = 10.0
+margin_right = 317.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 6 )
+text = "Health: 5"
+
+[node name="Collected" type="Label" parent="."]
+margin_left = 10.0
+margin_top = 29.0
+margin_right = 78.0
+margin_bottom = 40.0
+custom_colors/font_color = Color( 1, 1, 1, 0.627451 )
+custom_fonts/font = SubResource( 5 )
+text = "Collected: "
+
+[node name="Collect" type="Label" parent="."]
+margin_left = 189.0
+margin_top = 148.0
+margin_right = 310.0
+margin_bottom = 173.0
+custom_fonts/font = SubResource( 5 )
+text = "*Enter* while touching
+ to collect jellyfish"
+
+[node name="SmallJellyCounter" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="SmallJelly" type="TextureRect" parent="SmallJellyCounter"]
+margin_left = 7.0
+margin_top = 43.0
+margin_right = 39.0
+margin_bottom = 63.0
+texture = ExtResource( 3 )
+
+[node name="SmallJelly2" type="TextureRect" parent="SmallJellyCounter"]
+margin_left = 22.0
+margin_top = 43.0
+margin_right = 54.0
+margin_bottom = 63.0
+texture = ExtResource( 3 )
+
+[node name="SmallJelly3" type="TextureRect" parent="SmallJellyCounter"]
+margin_left = 37.0
+margin_top = 43.0
+margin_right = 69.0
+margin_bottom = 63.0
+texture = ExtResource( 3 )
+
+[node name="SmallJelly4" type="TextureRect" parent="SmallJellyCounter"]
+margin_left = 52.0
+margin_top = 43.0
+margin_right = 84.0
+margin_bottom = 63.0
+texture = ExtResource( 3 )
+
+[node name="CollectSmllJ" type="TextureRect" parent="SmallJellyCounter"]
+visible = false
+margin_left = 7.0
+margin_top = 43.0
+margin_right = 39.0
+margin_bottom = 63.0
+texture = ExtResource( 5 )
+
+[node name="CollectSmllJ2" type="TextureRect" parent="SmallJellyCounter"]
+visible = false
+margin_left = 22.0
+margin_top = 43.0
+margin_right = 54.0
+margin_bottom = 63.0
+texture = ExtResource( 5 )
+
+[node name="CollectSmllJ3" type="TextureRect" parent="SmallJellyCounter"]
+visible = false
+margin_left = 37.0
+margin_top = 43.0
+margin_right = 69.0
+margin_bottom = 63.0
+texture = ExtResource( 5 )
+
+[node name="CollectSmllJ4" type="TextureRect" parent="SmallJellyCounter"]
+visible = false
+margin_left = 52.0
+margin_top = 43.0
+margin_right = 84.0
+margin_bottom = 63.0
+texture = ExtResource( 5 )
+
+[node name="JellyCunter" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Jelly" type="TextureRect" parent="JellyCunter"]
+margin_left = 6.0
+margin_top = 62.0
+margin_right = 26.0
+margin_bottom = 82.0
+texture = ExtResource( 2 )
+
+[node name="Jelly2" type="TextureRect" parent="JellyCunter"]
+margin_left = 21.0
+margin_top = 62.0
+margin_right = 41.0
+margin_bottom = 82.0
+texture = ExtResource( 2 )
+
+[node name="Jelly3" type="TextureRect" parent="JellyCunter"]
+margin_left = 36.0
+margin_top = 62.0
+margin_right = 56.0
+margin_bottom = 82.0
+texture = ExtResource( 2 )
+
+[node name="CollectJelly" type="TextureRect" parent="JellyCunter"]
+visible = false
+margin_left = 6.0
+margin_top = 62.0
+margin_right = 26.0
+margin_bottom = 82.0
+texture = ExtResource( 7 )
+
+[node name="CollectJelly2" type="TextureRect" parent="JellyCunter"]
+visible = false
+margin_left = 21.0
+margin_top = 62.0
+margin_right = 41.0
+margin_bottom = 82.0
+texture = ExtResource( 7 )
+
+[node name="CollectJelly3" type="TextureRect" parent="JellyCunter"]
+visible = false
+margin_left = 36.0
+margin_top = 62.0
+margin_right = 56.0
+margin_bottom = 82.0
+texture = ExtResource( 7 )
+
+[node name="BigJellyCounter" type="Control" parent="."]
+margin_left = 6.0
+margin_top = 81.0
+margin_right = 46.0
+margin_bottom = 121.0
+
+[node name="BigJelly" type="TextureRect" parent="BigJellyCounter"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 4 )
+
+[node name="CollectBJ" type="TextureRect" parent="BigJellyCounter"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+
+[node name="HARDBigJellyCounter" type="Control" parent="."]
+visible = false
+margin_left = 6.0
+margin_top = 81.0
+margin_right = 46.0
+margin_bottom = 121.0
+
+[node name="BigJelly" type="TextureRect" parent="HARDBigJellyCounter"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 4 )
+
+[node name="BigJelly2" type="TextureRect" parent="HARDBigJellyCounter"]
+margin_left = 16.0
+margin_right = 56.0
+margin_bottom = 40.0
+texture = ExtResource( 4 )
+
+[node name="CollectBJ" type="TextureRect" parent="HARDBigJellyCounter"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
+
+[node name="CollectBJ2" type="TextureRect" parent="HARDBigJellyCounter"]
+visible = false
+margin_left = 16.0
+margin_right = 56.0
+margin_bottom = 40.0
+texture = ExtResource( 6 )
